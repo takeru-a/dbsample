@@ -22,8 +22,8 @@ public interface ChamberMapper {
    *
    * @return
    */
-  //@Select("select CHAMBER.USER,CHAMBER.NUMBER,USERINFO.HEIGHT from CHAMBER JOIN USERINFO ON CHAMBER.USER=USERINFO.USER;")
-  //ArrayList<ChamberUser> selectAllChamberUser();
+  @Select("select CHAMBER.USER,CHAMBER.NUMBER,USERINFO.HEIGHT from CHAMBER JOIN USERINFO ON CHAMBER.USER=USERINFO.USER;")
+  ArrayList<ChamberUser> selectAllChamberUser();
 
   /**
    * #{user}などはinsertの引数にあるChamberクラスのフィールドを表しています 引数に直接String userなどと書いてもいけるはず
@@ -37,7 +37,7 @@ public interface ChamberMapper {
   @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
   void insertChamber(Chamber chamber);
 
-  //@Insert("INSERT INTO userinfo (user,height) VALUES (#{user},#{height});")
-  //void insertUserInfo(UserInfo userinfo);
+  @Insert("INSERT INTO userinfo (user,height) VALUES (#{user},#{height});")
+  void insertUserInfo(UserInfo userinfo);
 
 }
